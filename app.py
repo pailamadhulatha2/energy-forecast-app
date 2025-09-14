@@ -2,10 +2,10 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-# ✅ Load model directly from GitHub repo
+#  Load model directly from GitHub repo
 model = joblib.load("energy_model.pkl")
 
-st.title("⚡ Energy Consumption Predictor")
+st.title(" Energy Consumption Predictor")
 
 # Input fields
 hour = st.slider("Hour", 0, 23)
@@ -27,6 +27,4 @@ input_data = pd.DataFrame([[hour, day, month, weekday, z1_plug, z2_ac1, z2_ac2, 
                                    'z2_Light(kW)', 'z2_Plug(kW)', 'z3_Light(kW)', 'z3_Plug(kW)'])
 
 prediction = model.predict(input_data)
-st.success(f"🔮 Predicted Zone 1 Light Consumption: {prediction[0]:.2f} kW")
-
-
+st.success(f" Predicted Zone 1 Light Consumption: {prediction[0]:.2f} kW")
